@@ -16,7 +16,7 @@ def search(target,pattern):
             # 다르면 즉시 종료
             if pattern[j] != target[i+j]:
                     break
-        else:   # for 반복문에서 break가 한 번도 안걸리면,
+        else:   # for 반복문에서 break가 한 번도 안걸리면, #반복문이 break없이 완전하게 종료되었다면
             # 패턴 찾음
             return True
         # 위 작은 반복문에서 break가 걸리면,
