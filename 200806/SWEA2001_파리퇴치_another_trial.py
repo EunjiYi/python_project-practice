@@ -15,3 +15,4 @@ for x in range(0, N-M+1):
         for i in range(x, x+ M):
             for j in range(y, y,+M):
                 S += arr[i][j]
+

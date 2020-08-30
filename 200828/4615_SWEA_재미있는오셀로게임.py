@@ -12,7 +12,8 @@ def Othello(y, x, dol):
 
         while True:
             # 주변으로 이동 못할 때 or 돌이 없을 때
-            if y + Y < 0 or y + Y >= N or x + X < 0 or x + X >= N or matrix[y + Y][x + X] == 0: break
+            if y + Y < 0 or y + Y >= N or x + X < 0 or x + X >= N or matrix[y + Y][x + X] == 0:
+                break
             # (2) 자기자신과 같은 색의 돌이면
             elif matrix[y + Y][x + X] == dol:
                 # 지금까지 저장해둔 상대방돌(위치좌표)를 내 돌로 바꾼다.
@@ -49,8 +50,8 @@ for tc in range(1, T + 1):
 
     # 갯수세기
     b_cnt = w_cnt = 0
-    for i in matrix:
-        b_cnt += i.count(1)
-        w_cnt += i.count(2)
+    for row in matrix:
+        b_cnt += row.count(1)
+        w_cnt += row.count(2)
 
     print('#{} {} {}'.format(tc, b_cnt, w_cnt))
