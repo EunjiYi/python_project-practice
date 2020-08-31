@@ -1,0 +1,63 @@
+# 최종적으로 최소인 합을 나타낼 변수를 전역변수로 선언한다.
+minValue = 0
+# N명의 학생이 고른 카드의 숫자를 저장한 이차원배열 card을 선언한다.
+card = [[13, 1, 4, 5], [7, 8, 4, 5], ... ]
+
+# 최소의 합을 구하는 함수 getResult()의 pseudocode는 아래와 같다.
+def getResult():
+    # 전역변수를 함수 내부에서 사용하기 위해 global 선언을 하였다.
+    global minValue
+
+    # 1번 학생이 4개 중 어느 무늬의 카드를 고르느냐에 따라 경우의 수가 나뉘므로
+    # (클로버를 고르는 경우, 하트를 고르는 경우, 스페이드를 고르는 경우, 다이어몬드를 고르는 경우 총 4가지)
+    # 4개의 변수를 담을 수 있는 list를 생성하고 초기값을 0으로 한다.
+    minlist = [0] * 4
+    # minlist[0] -> 1번이 맨 처음에 클로버를 골랐을 때 나올 수 있는, 최종적인 최솟값
+    # minlist[1] -> 1번이 맨 처음에 하트트 골랐을 때 나올 수 있는, 최종적인 최솟값
+    # minlist[2] -> 1번이 맨 처음에 스페이드를 골랐을 때 나올 수 있는, 최종적인 최솟값
+    # minlist[3] -> 1번이 맨 처음에 다이아몬드를 골랐을 때 나올 수 있는, 최종적인 최솟값
+    # 이 중 가장 작은 값이 최종적인 minValue가 된다.
+
+    # 그리고 for pattern in range(4)로 전체 구문을 4번 반복수행한다.
+    # 여기서 index는 무늬를 나타내고 각각,
+    # pattern = 0 클로버
+    # pattern = 1 하트
+    # pattern = 2 스페이드
+    # pattern = 3 다이아몬드를 의미한다.
+    for pattern in range(4):
+
+        # 학생수 만큼 반복한다.
+        for student in range(len(card)):
+            # 2번 학생부터는 앞선 학생이 고르지 않은 무늬를 골라야하므로,
+            # 이를 기억하기 위해 직전학생이 고른 무늬를 저장할 check = [0] * 4 라는 리스트를 만든다.
+            check = [0] * 4
+            # 만약 1번학생(student = 0)이 클로버무늬를 골랐다고 한다면(pattern = 0), check[0] = 1로 만든다.
+            # 그리고 고른 번호를 minlist[pattern]에 누적시킨다.
+            check[pattern] = 1
+            minlist[pattern] += card[student][pattern]
+
+            # 2번학생부터 마지막학생까지 카드를 고른다.
+            student = student + 1
+            while student < len(card): #마지막 번호 학생까지 다 카드를 골랐으면 반복문을 종료한다.
+                chooselist = list() # 직전 학생이 고르지 않은 무늬의 카드만 모아놓을 리스트를 선언한다.
+                # 무늬가 4가지이므로 4번 반복한다.
+                for i in range(4):
+                    if not check[i]: #만약 check[i]가 0이라면, 즉 고르지 않은 무늬라면,
+                        chooselist.append(card[student][i]) # 고를수 있는 선택지에 추가한다.
+                # 그 중에 가장 작은 값을 minlist[pattern]에 저장한다.
+                student_min = min(chooselist)  #가장 작은 값을 저장
+                minlist[pattern] += student_min
+
+                check = [0] * 4 #check 리스트를 다시 초기화하고
+                # 이번에는 지금 학생이 고른 무늬를 1로 표시한다.
+                student_index = chooselist.index(student_min) # 가장 작은 값의 인덱스를 저장
+                check[student_index] = 1
+                # 선택이 완료되었으므로 다음 학생으로 차례를 넘긴다.
+                student = student + 1
+
+
+    # 4가지 경우의 수가 담긴 minlist의 최솟값을 찾는다.
+    minValue = min(minlist)
+    return minValue (# minValue가 전역변수이므로 굳이 리턴이 필요하지는 않다.)
+
+# 최소인 합을 구하는 함수의 pseudocode 입니다. - 이은지
