@@ -1,5 +1,8 @@
 # front, rear를 이용
 SIZE = 4
+# 초기 공백큐 생성
+# 크기가 SIZE인 1차원 배열 생성
+# front와 rear를 0으로 초기화
 Q = [0] * SIZE
 front, rear = 0, 0
 
