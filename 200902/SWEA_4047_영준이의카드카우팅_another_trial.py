@@ -17,7 +17,7 @@ for tc in range(1,T+1):
             if s_arr[number] == 1:  # 해당 카드가 있으면 종료
                 break   #더이상 검사하지 않음
             s_arr[number] = 1
-            s_arr[0] += 1
+            s_arr[0] += 1 # 0번 인덱스를 총 보유한 카드 갯수로 활용하는 것이 참신하다.
         elif shape == 'D':
             if d_arr[number] == 1:  # 해당 카드가 있으면 종료
                 break   #더이상 검사하지 않음

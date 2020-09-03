@@ -3,13 +3,16 @@ def getResult():
     for i in range(0, len(string)-1, 3):
 
         #카드숫자를 number에 int로 저장
-        if string[i+1] == '0':
-            number = int(string[i+2])
-        else:
-            numberlist = []
-            numberlist.append(string[i + 1])
-            numberlist.append(string[i + 2])
-            number = int("".join(numberlist))
+        # if string[i+1] == '0':
+        #     number = int(string[i+2])
+        # else:
+        #     numberlist = []
+        #     numberlist.append(string[i + 1])
+        #     numberlist.append(string[i + 2])
+        #     number = int("".join(numberlist))
+        #와 이렇게 어렵게 할 필요없고
+        number = int(string[i + 1] + string[i + 2])
+        #만 하면 됐다.
 
         # 모양 체크
         if string[i] == 'S':

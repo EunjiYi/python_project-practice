@@ -11,9 +11,9 @@ def backtrack(idx,sum_v):
         if not selected[i]:  #selected[i] == 0
             selected[i] = 1 # 현재 열 사용 표시
 
-            tmp = sum_v+arr[idx][i]
-            if tmp < min_sum:
-                backtrack(idx+1,tmp)    #다음행으로 진행
+
+            if sum_v+arr[idx][i] < min_sum:
+                backtrack(idx+1,sum_v+arr[idx][i])    #다음행으로 진행
             selected[i] = 0 # 현재열 사용 표시 해제
 
 
