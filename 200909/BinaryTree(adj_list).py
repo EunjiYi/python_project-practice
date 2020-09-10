@@ -12,7 +12,7 @@ def preorder(node):
 
 V = int(input()) #정점
 E = V - 1 #간선
-tree = [[0] * 3 for _ in range(V+1)] # 3 * 14
+tree = [[0] * 3 for _ in range(V+1)] # 14 * 3
 temp = list(map(int, input().split()))
 cnt = 0
 # tree 저장
