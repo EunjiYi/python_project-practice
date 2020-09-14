@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>NEW Page</h2>
+<hr>
+<form action="" method="POST">
+  {% csrf_token %}
+  <label for="title">Title</label>
+  <input type="text" id="title" name="title">
+  <br>
+  <label for="content">Content</label>
+  <Textarea id="content" name="content" rows="3"></Textarea>
+  <br>
+  <input type="submit">
+</form>
+{% endblock %}
