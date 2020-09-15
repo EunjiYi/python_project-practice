@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Detail Page</h2>
+<hr>
+<p>{{ data.title }}</p>
+<p>{{ data.content }}</p>
+<p>{{ data.created }}</p>
+<p>{{ data.updated }}</p>
+<a href="{% url 'boards:update' data.pk %}">[Edit]</a>
+<br>
+<form action="{% url 'boards:del' data.pk %}" method="POST">
+  {% csrf_token %}
+  <button>삭제</button>
+</form>
+{% endblock %}
