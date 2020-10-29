@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('swea_1244_최대상금.txt')
+sys.stdin = open('123.txt')
 
 
 def perm(idx, cnt):
@@ -25,8 +25,11 @@ def perm(idx, cnt):
         return
 
     for i in range(idx + 1, N):
+
+
         if numbers[i] > numbers[idx]: # 뒤에 자신보다 큰 숫자가 있는 경우에만 교환한다.
             numbers[idx], numbers[i] = numbers[i], numbers[idx]
+
             perm(idx + 1, cnt + 1)
             numbers[idx], numbers[i] = numbers[i], numbers[idx]
     else: # 교환할게 없으면 다음 숫자로 넘어간다.
@@ -39,11 +42,12 @@ for tc in range(1, T + 1):
     numbers = list(map(str, numbers))
     switch = int(switch)
     N = len(numbers)
-    # print(numbers, switch)
+    #print(numbers, switch)
 
     max_sort = sorted(numbers, reverse=True) # 내림차순 정렬해서 최대값을 찾아놓고 perm함수를 실행한다.
+    #print(max_sort)
     max_num = int(''.join(max_sort))
-    # print(max_num)
+    #print(max_num)
 
     find_max = False # 최대값을 찾았는지 여부
     change = 0 # 최대값을 찾을 때까지 교환한 횟수
