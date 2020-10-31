@@ -14,4 +14,4 @@ for lst in arr:
 # for row in arr:
 #     print(row)
 
-#DP나 백트래킹도 완전검색이라 생가하자. 효율적인 완전검색.
+#DP나 백트래킹도 완전검색이라 생각하자. 효율적인 완전검색.
