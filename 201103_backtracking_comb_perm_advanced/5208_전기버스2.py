@@ -6,7 +6,7 @@ def comb(idx, cnt, sum):
     if cnt >= mcnt: # 꼭 쓰기. 없으면 시간초과
         return
 
-    if idx >= n: # 여기서 마지막 정류장일 때 바로 리턴되니까 마지막 정류장에서 충전유무 고려 안함.
+    if idx >= n-1: # 여기서 마지막 정류장일 때 바로 리턴되니까 마지막 정류장에서 충전유무 고려 안함.
         if cnt < mcnt:
             mcnt = cnt
             return
@@ -32,4 +32,4 @@ for tc in range(1, int(input())+1):
     comb(1, 0, stop[0]-1) #처음 충전은 횟수에 포함 안되니까 처음부터 넣고 시작. -1해주는 이유는 한 정류장 이동 했으니까.
     # 처음에 넣고 시작하니까 0번 정류장은 볼 필요없고 바로 1정류장부터 충전할지말지 신경쓰면 됐됐다 ㅠㅠ 이거 찾는데 오래걸림
 
-    print(mcnt)
+    print("#{} {}".format(tc, mcnt))
