@@ -19,7 +19,7 @@ def f(N, M, K, org):
                     for k in range(4): #주변 확인
                         ni = i + dr[k]
                         nj = j + dc[k]
-                        if 0 <= ni < N + K and 0 <= nj < M+K:
+                        if 0 <= ni < N + K and 0 <= nj < M+K: # 사실 초기 배열차제를 크게 줬기 때문에 필요하진 않음
                             if cell[ni][nj] > 0 and ((h-ts[ni][nj])/cell[ni][nj]) > 1: # 활성세포가 있으면
                                 tmp.append(cell[ni][nj]) #생명력 리스트 만듦
                         if len(tmp) > 0:
