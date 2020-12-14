@@ -12,7 +12,7 @@ def f(N, M, K, org):
                 ts[i+d][j+d] = 0
 
     for h in range(1, K+1): #배양시간별 각 칸의 상태 정의
-        for i in range(d-h//2, N+d+h//2): #시간이 지날수록 확인 영역 확장
+        for i in range(d-h//2, N+d+h//2): #시간이 지날수록 확인 영역 확장 -> 생명력이 1이어도 2시간에 한 번씩 번식하니까 h//2
             for j in range(d-h//2, M+d+h//2):
                 tmp = [] #주변의 활성세포 생명력 테스트
                 if cell[i][j] == 0: #아직 세포가 없으면

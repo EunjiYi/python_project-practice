@@ -15,7 +15,7 @@ def check(line): # line에서 활주로 건설이 가능하면 1, 가능하지 �
             for k in range(i, i-x, -1):
                 # if 0 <= k and check[k] == 0 and line[k] == line[i]:
                 #     check[k] = 1
-                if k < 0 or check[k] or line[k] != line[i]:
+                if k < 0 or check[k] or line[k] != line[i]: #이게 같지 않으면 평평하지 않다는 소리고 그러면 경사로 설치를 못한다.
                     flag = 0
                     break
             # break가 한 번도 안걸렸으면,
