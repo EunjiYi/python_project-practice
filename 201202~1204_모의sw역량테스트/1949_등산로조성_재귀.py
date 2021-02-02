@@ -20,6 +20,7 @@ def dfs(cr, cc, cut, ans):
             elif cut == 0 and mount[cr][cc] > mount[nr][nc] - K: #mount[cr][cc] < mount[nr][nc]는 고려할 필요가 없다. 왜냐면 이미 시작점이 이미 최댓값임.
                 tmp = mount[nr][nc] # 나중에 원상복귀를 위해서.
                 mount[nr][nc] = mount[cr][cc] - 1 # 현재높이보다 1만 작게 깎으면, 다음에도 가장 많이 갈 수 있다.
+                # if 문에서 ount[cr][cc] > mount[nr][nc] - K를 이미 검사를 했기 때문에 mount[nr][nc] = mount[cr][cc] - 1 이것이 무조건 가능하다.
                 visit[nr][nc] = 1
                 #cut = 1 로 놓고 dfs(nr, nc, cut, ans+1)로 넘기니까 안됨.
                 # 바로 dfs(nr, nc, 1, ans+1)로 넘기자.
