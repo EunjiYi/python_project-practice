@@ -18,21 +18,21 @@ def dijkstra(start,adj,weight):
     #1. 현재 방문하지 않은 정점중, 최소 비용으로 방문할 수 있는 정점 방문
     #2. 새로운 정점에 방문하고 나서, 그 정점으로 부터 모든 갈 수 있는 모든 정점의
     # 비용을 확인해서, 기존 최소 비용보다 더 작다면 수정.
-    U = {start}   #정점을 방문할 때마다, 정점을 추가
+    U = {start}   #정점을 방문할 때마다, 정점을 추가 # U = {0, 1}
     while len(U) < V:
         min_w = INF
         min_idx = -1
         for i in range(V):
-            if i not in U and weight[i] < min_w:
-                min_w = weight[i]
-                min_idx = i
+            if i not in U and weight[i] < min_w: #[0, 1, 2, 3, 4, 5]
+                min_w = weight[i] # 3
+                min_idx = i # 1
 
         U.add(min_idx)
-        for i in range(V):
+        for i in range(V): # [0, 1, 2, 3, 4, 5]
             if i not in U:
                 #방금 선택한 정점을 통하여 i노드로 가는 비용이
                 #기존에 i로 가는 비용보다 더 싸다면, 업데이트
-                tmp = min_w + adj[min_idx][i]
+                tmp = min_w + adj[min_idx][i] #adj[1][4] # tmp = 9
                 if weight[i] > tmp:
                     weight[i] = tmp
 
